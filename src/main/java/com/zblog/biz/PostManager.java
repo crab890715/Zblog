@@ -5,6 +5,7 @@ import java.util.ArrayList;
 import java.util.Collection;
 import java.util.Date;
 import java.util.List;
+import java.util.Map;
 
 import org.springframework.beans.BeanUtils;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -19,7 +20,6 @@ import com.zblog.core.dal.entity.Post;
 import com.zblog.core.dal.entity.Tag;
 import com.zblog.core.dal.entity.Upload;
 import com.zblog.core.dal.entity.User;
-import com.zblog.core.plugin.MapContainer;
 import com.zblog.core.plugin.PageModel;
 import com.zblog.core.plugin.TreeUtils;
 import com.zblog.core.util.CollectionUtils;
@@ -196,19 +196,19 @@ public class PostManager{
   }
 
   public PageModel<PostVO> search(String word, int pageIndex){
-    PageModel<MapContainer> page = postIndexManager.search(word, pageIndex);
+    PageModel<Map<String, Object>> page = postIndexManager.search(word, pageIndex);
     PageModel<PostVO> result = new PageModel<PostVO>(page.getPageIndex(), page.getPageSize());
     result.setTotalCount(page.getTotalCount());
     result.insertQuery("word", word);
     List<PostVO> content = new ArrayList<>(page.getContent().size());
     /* 填充其他属性，更好的做法是：搜索结果只包含对象id，详细资料到数据库查询(缓存) */
-    for(MapContainer mc : page.getContent()){
-      PostVO all = loadReadById(mc.getAsString("id"));
+    for(Map<String, Object> mc : page.getContent()){
+      PostVO all = loadReadById((String)mc.get("id"));
       PostVO copy = new PostVO();
       // 此处需要copy，否则会影响缓存内容
       BeanUtils.copyProperties(all, copy, new String[]{ "title", "excerpt" });
-      copy.setTitle(mc.getAsString("title"));
-      copy.setExcerpt(mc.getAsString("excerpt"));
+      copy.setTitle((String)mc.get("title"));
+      copy.setExcerpt((String)mc.get("excerpt"));
 
       content.add(copy);
     }

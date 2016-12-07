@@ -3,6 +3,8 @@ package com.zblog.biz.editor;
 import java.io.InputStream;
 import java.util.Arrays;
 import java.util.Date;
+import java.util.HashMap;
+import java.util.Map;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.core.io.InputStreamResource;
@@ -12,7 +14,6 @@ import org.springframework.web.multipart.MultipartFile;
 import com.zblog.biz.UploadManager;
 import com.zblog.core.WebConstants;
 import com.zblog.core.dal.entity.Upload;
-import com.zblog.core.plugin.MapContainer;
 import com.zblog.web.support.ServletRequestReader;
 import com.zblog.web.support.WebContextFactory;
 
@@ -23,81 +24,101 @@ import com.zblog.web.support.WebContextFactory;
  * 
  */
 @Component
-public class Ueditor{
-  @Autowired
-  private UploadManager uploadManager;
+public class Ueditor {
+	@Autowired
+	private UploadManager uploadManager;
 
-  public MapContainer server(ServletRequestReader reader){
-    String action = reader.getAsString("action");
+	public Map<String, Object> server(ServletRequestReader reader) {
+		String action = reader.getAsString("action");
 
-    MapContainer result = null;
-    if("config".equals(action)){
-      result = config();
-    }else if("uploadimage".equals(action)){
-      result = uploadImage(reader);
-    }else if("listimage".equals(action)){
+		Map<String, Object> result = null;
+		if ("config".equals(action)) {
+			result = config();
+		} else if ("uploadimage".equals(action)) {
+			result = uploadImage(reader);
+		} else if ("listimage".equals(action)) {
 
-    }else if("uploadfile".equals(action)){
+		} else if ("uploadfile".equals(action)) {
 
-    }else{
-      result = new MapContainer("state", "SUCCESS");
-    }
+		} else {
+			result = new HashMap<String, Object>();
+			result.put("state", "SUCCESS");
+		}
 
-    return result;
-  }
+		return result;
+	}
 
-  private MapContainer config(){
-    MapContainer config = new MapContainer();
-    /* 上传图片配置项 */
-    config.put("imageActionName", "uploadimage");
-    config.put("imageFieldName", "upfile");
-    config.put("imageMaxSize", 2048000);
-    config.put("imageUrlPrefix", "");
-    config.put("imageAllowFiles", Arrays.asList(".png", ".jpg", ".jpeg", ".gif", ".bmp"));
+	private Map<String, Object> config() {
+		Map<String, Object> config = new HashMap<String, Object>();
+		/* 上传图片配置项 */
+		config.put("imageActionName", "uploadimage");
+		config.put("imageFieldName", "upfile");
+		config.put("imageMaxSize", 2048000);
+		config.put("imageUrlPrefix", "");
+		config.put("imageAllowFiles", Arrays.asList(".png", ".jpg", ".jpeg", ".gif", ".bmp"));
 
-    /* 上传文件配置 */
-    config.put("fileActionName", "uploadfile");
-    config.put("fileFieldName", "upfile");
-    config.put("fileMaxSize", 51200000);
-    config.put("fileAllowFiles", Arrays.asList(".png", ".jpg", ".jpeg", ".gif", ".bmp", ".zip", ".tar", ".gz", ".7z"));
+		/* 上传文件配置 */
+		config.put("fileActionName", "uploadfile");
+		config.put("fileFieldName", "upfile");
+		config.put("fileMaxSize", 51200000);
+		config.put("fileAllowFiles",
+				Arrays.asList(".png", ".jpg", ".jpeg", ".gif", ".bmp", ".zip", ".tar", ".gz", ".7z"));
 
-    /* 上传视频配置 */
-    config.put("videoActionName", "uploadvideo");
-    config.put("videoFieldName", "upfile");
-    config.put("videoMaxSize", 102400000);
-    config.put("videoAllowFiles",
-        Arrays.asList(".flv", ".swf", ".mkv", ".avi", ".rmvb", ".mpeg", ".mpg", ".mov", ".wmv", ".mp4", ".webm"));
+		/* 上传视频配置 */
+		config.put("videoActionName", "uploadvideo");
+		config.put("videoFieldName", "upfile");
+		config.put("videoMaxSize", 102400000);
+		config.put("videoAllowFiles", Arrays.asList(".flv", ".swf", ".mkv", ".avi", ".rmvb", ".mpeg", ".mpg", ".mov",
+				".wmv", ".mp4", ".webm"));
 
-    /* 列出指定目录下的文件 */
-    config.put("fileManagerActionName", "listfile");
+		/* 列出指定目录下的文件 */
+		config.put("fileManagerActionName", "listfile");
 
-    /* 列出指定目录下的图片 */
-    config.put("imageManagerActionName", "listimage");
+		/* 列出指定目录下的图片 */
+		config.put("imageManagerActionName", "listimage");
 
-    return config;
-  }
+		return config;
+	}
 
-  public MapContainer uploadImage(ServletRequestReader reader){
-    MultipartFile file = reader.getFile("upfile");
-    Upload upload = null;
-    try(InputStream in = file.getInputStream()){
-      upload = uploadManager.insertUpload(new InputStreamResource(in), new Date(), file.getOriginalFilename(),
-          WebContextFactory.get().getUser().getId());
-    }catch(Exception e){
-      e.printStackTrace();
-      upload = null;
-    }
+	public Map<String, Object> uploadImage(ServletRequestReader reader) {
+		MultipartFile file = reader.getFile("upfile");
+		Upload upload = null;
+		try (InputStream in = file.getInputStream()) {
+			upload = uploadManager.insertUpload(new InputStreamResource(in), new Date(), file.getOriginalFilename(),
+					WebContextFactory.get().getUser().getId());
+		} catch (Exception e) {
+			e.printStackTrace();
+			upload = null;
+		}
 
-    if(upload == null){
-      return new MapContainer("state", "文件上传失败");
-    }
+		if (upload == null) {
+			return new HashMap<String, Object>() {
+				/**
+				* 
+				*/
+				private static final long serialVersionUID = 6199410812253672130L;
 
-    MapContainer mc = new MapContainer("state", "SUCCESS");
-    mc.put("original", upload.getName());
-    mc.put("title", upload.getName());
-    mc.put("url", WebConstants.getDomain() + upload.getPath());
+				{
+					put("state", "文件上传失败");
+				}
+			};
+		}
 
-    return mc;
-  }
+		Map<String, Object> mc = new HashMap<String, Object>() {
+			/**
+			* 
+			*/
+			private static final long serialVersionUID = -4790306616232287609L;
+
+			{
+				put("state", "SUCCESS");
+			}
+		};
+		mc.put("original", upload.getName());
+		mc.put("title", upload.getName());
+		mc.put("url", WebConstants.getDomain() + upload.getPath());
+
+		return mc;
+	}
 
 }

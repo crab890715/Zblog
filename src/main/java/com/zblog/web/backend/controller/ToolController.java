@@ -1,6 +1,7 @@
 package com.zblog.web.backend.controller;
 
 import java.util.Collection;
+import java.util.Map;
 
 import org.apache.shiro.authz.annotation.RequiresRoles;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -14,9 +15,9 @@ import org.springframework.web.multipart.MultipartFile;
 
 import com.zblog.biz.EhCacheManager;
 import com.zblog.biz.WordPressManager;
+import com.zblog.core.dal.entity.Result;
 import com.zblog.core.dal.entity.User;
 import com.zblog.core.lucene.SearchEnginer;
-import com.zblog.core.plugin.MapContainer;
 import com.zblog.web.support.WebContextFactory;
 
 @Controller
@@ -30,7 +31,7 @@ public class ToolController{
 
   @RequestMapping(value = "/ehcache", method = RequestMethod.GET)
   public String ehcache(Model model){
-    Collection<MapContainer> caches = ehCacheManager.stats();
+    Collection<Map<String,Object>> caches = ehCacheManager.stats();
     model.addAttribute("caches", caches);
     return "backend/tool/caches";
   }
@@ -39,7 +40,7 @@ public class ToolController{
   @RequestMapping(value = "/ehcache/${cacheName}", method = RequestMethod.DELETE)
   public Object clearEhcache(@PathVariable String cacheName){
     ehCacheManager.clear(cacheName);
-    return new MapContainer("success", true);
+    return Result.success();
   }
 
   @ResponseBody
