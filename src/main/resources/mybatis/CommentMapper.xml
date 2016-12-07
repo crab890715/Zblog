@@ -8,13 +8,13 @@
       select id, postid, parent, email, url, ip, agent, content, status, creator, createTime from comment where id = #{id}
    </select>
    
-   <select id="list" parameterType="PageModel" resultType="MapContainer">  
+   <select id="list" parameterType="PageModel" resultType="map">  
      select c.id, c.postid, c.url, c.email, c.ip, c.content, c.creator, c.status, c.createTime, p.title, t.id as pid, t.creator as pcreator
        from comment c left join post p on c.postid=p.id left join comment t on c.parent=t.id
        where c.status in <foreach collection="query.status" open="(" close=")" item="item" separator=",">#{item}</foreach>
    </select>
    
-   <select id="listCountByGroupStatus" resultType="MapContainer">
+   <select id="listCountByGroupStatus" resultType="map">
      select status, count(*) as count from comment group by status
    </select>
    

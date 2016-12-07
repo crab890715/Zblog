@@ -28,16 +28,8 @@ public class EhCacheManager {
 		Collection<String> cns = manager.getCacheNames();
 		List<Map<String, Object>> list = new ArrayList<>(cns.size());
 		for (String cacheName : cns) {
-			Map<String, Object> temp = new HashMap<String, Object>() {
-				/**
-				* 
-				*/
-				private static final long serialVersionUID = -6874750205637565356L;
-
-				{
-					put("name", cacheName);
-				}
-			};
+			Map<String, Object> temp = new HashMap<String, Object>();
+			temp.put("name", cacheName);
 			Ehcache cache = manager.getCacheManager().getEhcache(cacheName);
 			Statistics gateway = cache.getStatistics();
 			/* 毫秒 */

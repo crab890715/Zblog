@@ -8,7 +8,7 @@
       select * from post where id = #{id}
    </select>
    
-  <!--  <select id="loadReadById" parameterType="java.lang.String" resultType="MapContainer">  
+  <!--  <select id="loadReadById" parameterType="java.lang.String" resultType="map">  
       select p.id, p.title, p.content, p.type, p.categoryid, c.name as categoryName, p.parent, p.pstatus, p.creator, p.rcount, p.ccount, p.createTime, u.nickName 
       from post p left join category c on p.categoryid=c.id left join user u on p.creator=u.id
       where p.id = #{id}
@@ -50,7 +50,7 @@
         where p.type='post' and t.name=#{query.tagName} order by p.createTime desc
    </select>
    
-   <select id="listArchive" resultType="MapContainer">
+   <select id="listArchive" resultType="map">
       select createTime ,count(*) as count from post where type='post' group by date_format(createTime,'%Y%m') order by createTime desc
    </select>
    

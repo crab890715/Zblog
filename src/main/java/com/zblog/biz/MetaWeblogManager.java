@@ -109,16 +109,9 @@ public class MetaWeblogManager {
 		}
 
 		Upload upload = uploadManager.insertUpload(new ByteArrayResource(bits), new Date(), name, user.getId());
-		return new HashMap<String, Object>() {
-			/**
-			 * 
-			 */
-			private static final long serialVersionUID = 8088352786851550637L;
-
-			{
-				put("url", WebConstants.getDomainLink(upload.getPath()));
-			}
-		};
+		Map<String, Object> m = new HashMap<String, Object>();
+		m.put("url", WebConstants.getDomainLink(upload.getPath()));
+		return m;
 	}
 
 	public Object newPost(String blogid, String username, String pwd, XmlRpcStruct param, boolean publish) {
@@ -223,20 +216,12 @@ public class MetaWeblogManager {
 			if (CategoryConstants.ROOT.equals(category.get("text")))
 				continue;
 
-			Map<String, Object> mc = new HashMap<String, Object>() {
-				/**
-				 * 
-				 */
-				private static final long serialVersionUID = 7407190840952938004L;
-
-				{
-					put("categoryid", category.get("id"));
-					put("title", category.get("name"));
-					put("description", category.get("name"));
-					put("htmlUrl", WebConstants.getDomainLink("/categorys/" + category.get("name")));
-					put("rssUrl", "");
-				}
-			};
+			Map<String, Object> mc = new HashMap<String, Object>();
+			mc.put("categoryid", category.get("id"));
+			mc.put("title", category.get("name"));
+			mc.put("description", category.get("name"));
+			mc.put("htmlUrl", WebConstants.getDomainLink("/categorys/" + category.get("name")));
+			mc.put("rssUrl", "");
 			result.add(mc);
 		}
 
@@ -270,24 +255,17 @@ public class MetaWeblogManager {
 		Object[] result = new Object[list.size()];
 		for (int i = 0; i < list.size(); i++) {
 			PostVO temp = list.get(i);
-			result[i] = new HashMap<String, Object>() {
-				/**
-				 * 
-				 */
-				private static final long serialVersionUID = -3654504782038870285L;
-
-				{
-					put("dateCreated", temp.getCreateTime());
-					put("userid", temp.getCreator());
-					put("postid", temp.getId());
-					put("description", temp.getContent());
-					put("title", temp.getTitle());
-					put("link", WebConstants.getDomainLink("/posts/" + temp.getId()));
-					put("permaLink", WebConstants.getDomainLink("/posts/" + temp.getId()));
-					put("categories", Arrays.asList(temp.getCategory().getName()));
-					put("post_status", "publish");
-				}
-			};
+			Map<String, Object> m = new HashMap<String, Object>();
+			m.put("dateCreated", temp.getCreateTime());
+			m.put("userid", temp.getCreator());
+			m.put("postid", temp.getId());
+			m.put("description", temp.getContent());
+			m.put("title", temp.getTitle());
+			m.put("link", WebConstants.getDomainLink("/posts/" + temp.getId()));
+			m.put("permaLink", WebConstants.getDomainLink("/posts/" + temp.getId()));
+			m.put("categories", Arrays.asList(temp.getCategory().getName()));
+			m.put("post_status", "publish");
+			result[i] = m;
 		}
 		return result;
 	}

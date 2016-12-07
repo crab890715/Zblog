@@ -4,7 +4,7 @@
 
 <mapper namespace="com.zblog.core.dal.mapper.CategoryMapper">
 
-   <select id="list" resultType="MapContainer">  
+   <select id="list" resultType="map">  
       select id, name, level,visible from view_category
    </select>
    
