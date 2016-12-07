@@ -10,8 +10,11 @@ import javax.servlet.http.HttpServletResponse;
 import org.apache.shiro.SecurityUtils;
 import org.apache.shiro.authz.AuthorizationException;
 import org.apache.shiro.util.ThreadContext;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.web.filter.OncePerRequestFilter;
 
+import com.zblog.biz.VisitStatManager;
 import com.zblog.core.Constants;
 import com.zblog.core.WebConstants;
 import com.zblog.core.util.ServletUtils;
@@ -29,7 +32,7 @@ import com.zblog.web.support.WebContextFactory;
  * 
  */
 public class LoginFilter extends OncePerRequestFilter{
-
+  private static final Logger logger = LoggerFactory.getLogger(VisitStatManager.class);
   @Override
   protected void doFilterInternal(HttpServletRequest request, HttpServletResponse response, FilterChain filterChain)
       throws ServletException, IOException{
