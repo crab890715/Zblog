@@ -17,7 +17,8 @@ import org.apache.ibatis.plugin.Invocation;
 import org.apache.ibatis.plugin.Plugin;
 import org.apache.ibatis.plugin.Signature;
 import org.apache.ibatis.scripting.defaults.DefaultParameterHandler;
-import org.apache.log4j.Logger;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 import com.zblog.core.util.BeanPropertyUtils;
 import com.zblog.core.util.JdbcUtils;
@@ -31,7 +32,7 @@ import com.zblog.core.util.JdbcUtils;
  */
 @Intercepts({ @Signature(type = StatementHandler.class, method = "prepare", args = { Connection.class }) })
 public class PageInterceptor implements Interceptor{
-  static final Logger logger = Logger.getLogger(PageInterceptor.class);
+  static final Logger logger = LoggerFactory.getLogger(PageInterceptor.class);
 
   public Object intercept(Invocation invocation) throws Throwable{
     RoutingStatementHandler handler = (RoutingStatementHandler) invocation.getTarget();
