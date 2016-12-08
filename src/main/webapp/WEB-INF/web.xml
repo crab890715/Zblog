@@ -74,7 +74,7 @@
   </filter>
 
   <servlet>
-    <servlet-name>Zblog</servlet-name>
+    <servlet-name>spring</servlet-name>
     <servlet-class>org.springframework.web.servlet.DispatcherServlet</servlet-class>
     <load-on-startup>1</load-on-startup>
     <async-supported>true</async-supported>
@@ -83,14 +83,18 @@
       <param-value>classpath:config/spring-servlet.xml</param-value>
     </init-param>
   </servlet>
+  <servlet-mapping>
+    <servlet-name>spring</servlet-name>
+    <url-pattern>/</url-pattern>
+  </servlet-mapping>
   
   <filter-mapping>
     <filter-name>HttpPutFormContentFilter</filter-name>
-    <servlet-name>Zblog</servlet-name>
+    <servlet-name>spring</servlet-name>
   </filter-mapping>
   <filter-mapping>
     <filter-name>LoginFilter</filter-name>
-    <servlet-name>Zblog</servlet-name>
+    <servlet-name>spring</servlet-name>
   </filter-mapping>
   <filter-mapping>
     <filter-name>XssFilter</filter-name>
@@ -98,11 +102,11 @@
   </filter-mapping>
   <filter-mapping>
     <filter-name>StatelessCsrfFilter</filter-name>
-    <servlet-name>Zblog</servlet-name>
+    <servlet-name>spring</servlet-name>
   </filter-mapping>
   <filter-mapping>
      <filter-name>HiddenHttpMethodFilter</filter-name>
-     <servlet-name>Zblog</servlet-name>
+     <servlet-name>spring</servlet-name>
   </filter-mapping>
   
   <!-- 激活Tomcat的defaultServlet来处理静态文件 -->
@@ -113,11 +117,6 @@
   <servlet-mapping>
     <servlet-name>default</servlet-name>
     <url-pattern>/post/*</url-pattern>
-  </servlet-mapping>
-
-  <servlet-mapping>
-    <servlet-name>Zblog</servlet-name>
-    <url-pattern>/</url-pattern>
   </servlet-mapping>
 
   <!-- 设置Session时长:以分钟为单位;如果是零或负数,那么会话就永远不会超时。注：当前程序不使用session，使用cookie -->

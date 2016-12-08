@@ -14,7 +14,6 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.web.filter.OncePerRequestFilter;
 
-import com.zblog.biz.VisitStatManager;
 import com.zblog.core.Constants;
 import com.zblog.core.WebConstants;
 import com.zblog.core.util.ServletUtils;
@@ -32,7 +31,7 @@ import com.zblog.web.support.WebContextFactory;
  * 
  */
 public class LoginFilter extends OncePerRequestFilter{
-  private static final Logger logger = LoggerFactory.getLogger(VisitStatManager.class);
+  private static final Logger logger = LoggerFactory.getLogger(LoginFilter.class);
   @Override
   protected void doFilterInternal(HttpServletRequest request, HttpServletResponse response, FilterChain filterChain)
       throws ServletException, IOException{
@@ -55,7 +54,7 @@ public class LoginFilter extends OncePerRequestFilter{
 
       /* 设置domain */
       WebConstants.setDomain(ServletUtils.getDomain(request));
-
+      logger.info("uri:{}",request.getRequestURI());
       filterChain.doFilter(request, response);
     }catch(Exception e){
       if(ServletUtils.isAjax(request)){
