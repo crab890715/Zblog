@@ -17,7 +17,7 @@
         <div id="comments">
           <div id="comment_area">
            <c:choose>
-             <c:when test="${comments==null || z:length(comments)==0}">
+             <c:when test="${comments==null || fn:length(comments)==0}">
                <ol class="commentlist"><li id="nocomment" class="comment"><div class="comment-content"><p>暂无评论</p></div></li></ol>
              </c:when>
              <c:otherwise>
