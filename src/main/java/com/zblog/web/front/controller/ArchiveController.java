@@ -32,7 +32,7 @@ public class ArchiveController{
     model.addAttribute(WebConstants.PRE_TITLE_KEY, DateUtils.formatDate("MMM,yyyy", yearMonth));
 
     model.addAttribute("archive", yearMonth);
-    return "index";
+    return "front/index";
   }
 
   @InitBinder

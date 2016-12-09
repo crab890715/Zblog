@@ -1,7 +1,5 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
-<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
-<%@ taglib prefix="z" uri="/WEB-INF/tld/function.tld" %>
-<%@ taglib uri="/WEB-INF/tld/shiro-function.tld" prefix="sf" %>
+<%@ include file="../common/tags.jsp"%>
 <fieldset id="respond" class="comment_form_wrapper">
 <c:choose>
  <c:when test="${!g.allowComment || post.cstatus=='close'|| (!sf:isUser()&&post.pstatus=='secret')}">

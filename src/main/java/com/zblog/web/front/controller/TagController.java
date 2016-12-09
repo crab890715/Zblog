@@ -24,7 +24,7 @@ public class TagController{
 
     model.addAttribute("tag", tagName);
     model.addAttribute(WebConstants.PRE_TITLE_KEY, tagName);
-    return "index";
+    return "front/index";
   }
 
 }

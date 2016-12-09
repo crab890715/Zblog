@@ -31,7 +31,7 @@ public class CategoryController{
 
     model.addAttribute("category", categoryName);
     model.addAttribute(WebConstants.PRE_TITLE_KEY, categoryName);
-    return "index";
+    return "front/index";
   }
 
 }

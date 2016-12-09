@@ -49,7 +49,7 @@ public class IndexController{
       model.addAttribute("page", postManager.listPost(page, 10));
     }
 
-    return "index";
+    return "front/index";
   }
 
   @RequestMapping(value = "/feed")
@@ -78,7 +78,7 @@ public class IndexController{
     List<PostVO> posts = postManager.listBySitemap();
     model.addAttribute("posts", posts);
 
-    return "sitemap";
+    return "front/sitemap";
   }
 
   @RequestMapping("/restatic.json")
