@@ -91,7 +91,9 @@ public final class WordPressReader {
 						Element category = (Element) categorys.item(j);
 						String categoryDomain = category.getAttribute("domain");
 						if ("post_tag".equals(categoryDomain)) {
-							((List) map.putIfAbsent("tags", new ArrayList<String>())).add(category.getTextContent());
+							List<String> l = new ArrayList<String>();
+							l.add(category.getTextContent());
+							map.put("tags", l);
 						} else if ("category".equals(categoryDomain)) {
 							map.put("category", category.getTextContent());
 						}

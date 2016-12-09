@@ -58,7 +58,9 @@ public class CategoryManager {
 			int level = (int) current.get("level");
 			current.put("level", level - 1);
 			Map<String, Object> parent = getLastParentByLevel(root, level - 1);
-			((List) parent.putIfAbsent("nodes", new ArrayList<Map<String, Object>>())).add(current);
+			List<Map<String, Object>> l = new ArrayList<Map<String, Object>>();
+			l.add(current);
+			parent.put("nodes", l);
 		}
 
 		return (List) root.get("nodes");
@@ -67,8 +69,8 @@ public class CategoryManager {
 	private static Map<String, Object> getLastParentByLevel(Map<String, Object> mc, int currentlevel) {
 		Map<String, Object> current = mc;
 		for (int i = 1; i < currentlevel; i++) {
-			List<Map<String, Object>> children = (List) current.putIfAbsent("nodes",
-					new ArrayList<Map<String, Object>>());
+			List<Map<String, Object>> children = new ArrayList<Map<String, Object>>();
+			current.put("nodes", children);
 			current = children.get(children.size() - 1);
 		}
 
