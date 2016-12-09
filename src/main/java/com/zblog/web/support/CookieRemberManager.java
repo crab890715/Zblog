@@ -8,7 +8,7 @@ import com.zblog.core.dal.entity.User;
 import com.zblog.core.plugin.ApplicationContextUtil;
 import com.zblog.core.security.HashCalculator;
 import com.zblog.core.security.Hex;
-import com.zblog.core.util.CookieUtil;
+import com.zblog.core.util.Cookier;
 import com.zblog.core.util.IdGenerator;
 import com.zblog.core.util.StringUtils;
 import com.zblog.service.UserService;
@@ -23,7 +23,7 @@ public class CookieRemberManager{
   private static final String COOKIE_KEY = IdGenerator.uuid19();
 
   public static User extractValidRememberMeCookieUser(HttpServletRequest request, HttpServletResponse response){
-    CookieUtil cookieUtil = new CookieUtil(request, response);
+    Cookier cookieUtil = new Cookier(request, response);
     String token = cookieUtil.getCookie(Constants.COOKIE_CONTEXT_ID);
     if(StringUtils.isBlank(token))
       return null;
@@ -63,7 +63,7 @@ public class CookieRemberManager{
   public static void loginSuccess(HttpServletRequest request, HttpServletResponse response, String userid,
       String password, boolean remeber){
     long tokenExpiryTime = remeber ? System.currentTimeMillis() + 7 * 24 * 3600 : -1;
-    CookieUtil cookieUtil = new CookieUtil(request, response);
+    Cookier cookieUtil = new Cookier(request, response);
     String cookieValue = userid + ":" + tokenExpiryTime + ":" + makeTokenSignature(userid, tokenExpiryTime, password);
     if(remeber){
       cookieUtil.setCookie(Constants.COOKIE_CONTEXT_ID, cookieValue, true, 7 * 24 * 3600);
@@ -78,7 +78,7 @@ public class CookieRemberManager{
   }
 
   public static void logout(HttpServletRequest request, HttpServletResponse response){
-    CookieUtil cookieUtil = new CookieUtil(request, response);
+    Cookier cookieUtil = new Cookier(request, response);
     cookieUtil.removeCokie(Constants.COOKIE_CONTEXT_ID);
   }
 

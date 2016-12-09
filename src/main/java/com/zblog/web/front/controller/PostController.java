@@ -13,7 +13,7 @@ import com.zblog.biz.CommentManager;
 import com.zblog.biz.PostManager;
 import com.zblog.biz.VisitStatManager;
 import com.zblog.core.WebConstants;
-import com.zblog.core.util.CookieUtil;
+import com.zblog.core.util.Cookier;
 import com.zblog.service.PostService;
 import com.zblog.service.vo.PostVO;
 
@@ -37,7 +37,7 @@ public class PostController{
       model.addAttribute(WebConstants.PRE_TITLE_KEY, post.getTitle());
       model.addAttribute("post", post);
       model.addAttribute("comments",
-          commentManager.getAsTree(id, new CookieUtil(request, null).getCookie("comment_author")));
+          commentManager.getAsTree(id, new Cookier(request, null).getCookie("comment_author")));
       /* 上一篇，下一篇 */
       model.addAttribute("next", postService.getNextPost(id));
       model.addAttribute("prev", postService.getPrevPost(id));

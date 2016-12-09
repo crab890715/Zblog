@@ -18,7 +18,7 @@ import com.zblog.core.dal.constants.PostConstants;
 import com.zblog.core.dal.entity.Comment;
 import com.zblog.core.dal.entity.Post;
 import com.zblog.core.dal.entity.Result;
-import com.zblog.core.util.CookieUtil;
+import com.zblog.core.util.Cookier;
 import com.zblog.core.util.IdGenerator;
 import com.zblog.core.util.JsoupUtils;
 import com.zblog.core.util.ServletUtils;
@@ -41,7 +41,7 @@ public class CommentController {
 	@ResponseBody
 	@RequestMapping(method = RequestMethod.POST)
 	public Object post(Comment comment, HttpServletRequest request, HttpServletResponse response) {
-		CookieUtil cookieUtil = new CookieUtil(request, response);
+		Cookier cookieUtil = new Cookier(request, response);
 		if (StringUtils.isBlank(comment.getCreator())) {
 			comment.setCreator(cookieUtil.getCookie("comment_author"));
 			comment.setUrl(cookieUtil.getCookie("comment_author_url", false));

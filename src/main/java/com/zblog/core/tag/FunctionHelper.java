@@ -4,7 +4,7 @@ import java.net.URI;
 import java.util.Collection;
 
 import com.zblog.core.util.CollectionUtils;
-import com.zblog.core.util.CookieUtil;
+import com.zblog.core.util.Cookier;
 import com.zblog.core.util.FileUtils;
 import com.zblog.core.util.StringUtils;
 import com.zblog.web.support.WebContext;
@@ -23,7 +23,7 @@ public class FunctionHelper{
    */
   public static String cookieValue(String name){
     WebContext context = WebContextFactory.get();
-    CookieUtil cookieUtil = new CookieUtil(context.getRequest(), context.getResponse());
+    Cookier cookieUtil = new Cookier(context.getRequest(), context.getResponse());
     return cookieUtil.getCookie(name);
   }
 

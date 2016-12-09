@@ -19,7 +19,7 @@ import com.zblog.biz.PostManager;
 import com.zblog.core.Constants;
 import com.zblog.core.dal.constants.PostConstants;
 import com.zblog.core.dal.entity.User;
-import com.zblog.core.util.CookieUtil;
+import com.zblog.core.util.Cookier;
 import com.zblog.core.util.ServletUtils;
 import com.zblog.core.util.StringUtils;
 import com.zblog.service.CommentService;
@@ -82,7 +82,7 @@ public class BackendController {
 	public String logout(HttpServletRequest request, HttpServletResponse response) {
 		CookieRemberManager.logout(request, response);
 		SecurityUtils.getSubject().logout();
-		CookieUtil cookieUtil = new CookieUtil(request, response);
+		Cookier cookieUtil = new Cookier(request, response);
 		cookieUtil.removeCokie(Constants.COOKIE_CSRF_TOKEN);
 		cookieUtil.removeCokie("comment_author");
 		cookieUtil.removeCokie("comment_author_email");
@@ -106,7 +106,7 @@ public class BackendController {
 		}
 
 		SecurityUtils.getSubject().login(new StatelessToken(user.getId(), user.getPassword()));
-		CookieUtil cookieUtil = new CookieUtil(request, response);
+		Cookier cookieUtil = new Cookier(request, response);
 		/* 根据RFC-2109中的规定，在Cookie中只能包含ASCII的编码 */
 		cookieUtil.setCookie(Constants.COOKIE_USER_NAME, form.getUsername(), false, 7 * 24 * 3600);
 		cookieUtil.setCookie("comment_author", user.getNickName(), "/", false, 365 * 24 * 3600);
