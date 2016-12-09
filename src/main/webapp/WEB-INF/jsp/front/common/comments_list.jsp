@@ -24,7 +24,7 @@
       </c:if>
        <p>${comment.content}</p>
      </div>
-     <c:if test="${comment.children!=null&&fn:length(comment.children)!=0}">
+     <c:if test="${comment.children!=null&&z:length(comment.children)!=0}">
        <c:set var="depth" value="${depth+1}" scope="request" />
        <c:set var="parent" value="${status.index%2==0}" scope="request" />
        <c:set var="comments" value="${comment.children}" scope="request" />
