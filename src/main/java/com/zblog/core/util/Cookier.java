@@ -11,7 +11,7 @@ import org.springframework.util.ReflectionUtils;
 import com.zblog.core.Constants;
 import com.zblog.core.security.Base64Codec;
 
-public class CookieUtil{
+public class Cookier{
   private static Method setHttpOnlyMethod;
   private static final String PATH = "/";
 
@@ -23,11 +23,11 @@ public class CookieUtil{
     setHttpOnlyMethod = ReflectionUtils.findMethod(Cookie.class, "setHttpOnly", boolean.class);
   }
 
-  public CookieUtil(final HttpServletRequest request, final HttpServletResponse response){
+  public Cookier(final HttpServletRequest request, final HttpServletResponse response){
     this(request, response, null);
   }
 
-  public CookieUtil(final HttpServletRequest request, final HttpServletResponse response, final String domain){
+  public Cookier(final HttpServletRequest request, final HttpServletResponse response, final String domain){
     this.request = request;
     this.response = response;
     this.domain = domain;
