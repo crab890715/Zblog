@@ -17,6 +17,7 @@ public class ImageTag extends TagSupport{
 	private static final long serialVersionUID = 8997239144745198831L;
 	private String id;
 	private String src;
+	private String title;
 	private String name;
 	private String style;
 	private String css;
@@ -52,6 +53,7 @@ public class ImageTag extends TagSupport{
 		addAttribute(sb, "id", id);
 		addAttribute(sb, "src",url);
 		addAttribute(sb, "name", name);
+		addAttribute(sb, "title", title);
 		addAttribute(sb, "class", css);
 		addAttribute(sb, "height", height);
 		addAttribute(sb, "width", width);
@@ -185,6 +187,12 @@ public class ImageTag extends TagSupport{
 	 */
 	public void setType(String type) {
 		this.type = type;
+	}
+	public String getTitle() {
+		return title;
+	}
+	public void setTitle(String title) {
+		this.title = title;
 	}
 
 }
