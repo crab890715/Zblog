@@ -1,4 +1,4 @@
-<%@ page language="java" import="java.util.*" pageEncoding="UTF-8"%>
+<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <div id="footer" class="clearfix">
   <p id="copyright">
     <span class="copyright">版权所有 ©&nbsp;${g.year}&nbsp;<a href="${g.domain}">${g.title}</a></span>

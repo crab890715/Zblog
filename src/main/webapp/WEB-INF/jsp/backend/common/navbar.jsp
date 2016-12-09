@@ -1,4 +1,4 @@
-<%@ page language="java" import="java.util.*" pageEncoding="UTF-8"%>
+<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <%@ taglib prefix="z" uri="/WEB-INF/tld/function.tld" %>
 <nav class="navbar navbar-inverse navbar-fixed-top">
   <div class="container-fulid" style="padding-right: 15px;">
