@@ -29,7 +29,7 @@
             <p class="excerpt">${post.excerpt}...</p>
             <p><a class="more_link" href="${g.domain}/posts/${post.id}">阅读全文</a></p>
           </div>
-          <c:if test="${post.tags!=null&&fn:length:length(post.tags)!=0}">
+          <c:if test="${post.tags!=null&&fn:length(post.tags)!=0}">
             <div class="post_tags clearfix">
               <ul class="clearfix">
                 <li></li>
