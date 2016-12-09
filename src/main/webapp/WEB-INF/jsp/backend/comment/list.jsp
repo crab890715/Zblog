@@ -4,14 +4,14 @@
 <!DOCTYPE Html>
 <html>
 <head>
-<jsp:include page="../common/bootstrap.jsp" flush="false" />
+<%@ include file="../common/bootstrap.jsp"%>
 </head>
 <body style="margin-top: 50px;">
-	<jsp:include page="../common/navbar.jsp" flush="false" />
+	<%@ include file="../common/navbar.jsp"%>
 	<div class="container-fluid">
 		<div class="row">
 			<div class="col-sm-3 col-md-2" id="sidebar" style="padding: 0;">
-				<jsp:include page="../common/sidebar.jsp" flush="false" />
+				<%@ include file="../common/sidebar.jsp"%>
 			</div>
 			<div class="col-sm-9 col-md-10">
 				<ol class="breadcrumb header">
@@ -121,7 +121,7 @@
 							</div>
 							<div class="col-sm-6 col-md-6">
 								<div id="pager">
-									<jsp:include page="../common/pagination.jsp" flush="false" />
+									<%@ include file="../common/pagination.jsp"%>
 								</div>
 							</div>
 						</div>

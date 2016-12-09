@@ -1,6 +1,4 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
-<%@taglib prefix="shiro" uri="http://shiro.apache.org/tags" %>
-
 <ul class="side-menu">
   <li><a class="nav-header" href="#">
         <i class="left glyphicon glyphicon-home" aria-hidden="true"></i>系统设置

@@ -1,5 +1,4 @@
-<%@ taglib prefix="page" uri="/WEB-INF/tld/pagination.tld" %>
-<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
+<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <ul class="pagination">
   <page:page model="${page}" pageUrl="" showPage="8">
     <page:prev>
