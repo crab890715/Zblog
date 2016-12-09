@@ -16,8 +16,8 @@ import org.springframework.web.filter.OncePerRequestFilter;
 
 import com.zblog.core.Constants;
 import com.zblog.core.WebConstants;
-import com.zblog.core.util.ServletUtils;
-import com.zblog.core.util.Threads;
+import com.zblog.core.utils.ServletUtils;
+import com.zblog.core.utils.Threads;
 import com.zblog.service.shiro.StatelessToken;
 import com.zblog.service.vo.Global;
 import com.zblog.web.support.CookieRemberManager;

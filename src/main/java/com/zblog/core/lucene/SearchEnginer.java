@@ -47,7 +47,7 @@ import org.wltea.analyzer.lucene.IKAnalyzer;
 
 import com.zblog.core.WebConstants;
 import com.zblog.core.plugin.PageModel;
-import com.zblog.core.util.StringUtils;
+import com.zblog.core.utils.StringUtils;
 
 /**
  * 搜索引擎服务提供类

@@ -1,4 +1,4 @@
-package com.zblog.core.util;
+package com.zblog.core.utils;
 
 /**
  * 通用正则表达式

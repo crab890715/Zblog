@@ -12,7 +12,7 @@ import org.springframework.web.servlet.handler.AbstractHandlerMapping;
 import org.springframework.web.util.HtmlUtils;
 import org.springframework.web.util.UrlPathHelper;
 
-import com.zblog.core.util.CollectionUtils;
+import com.zblog.core.utils.CollectionUtils;
 
 /**
  * 解决@PathVariable注解造成的xss攻击问题,注意:此类必需由WebApplicationContext初始化

@@ -17,8 +17,8 @@ import org.springframework.web.bind.annotation.ResponseBody;
 import com.zblog.biz.CategoryManager;
 import com.zblog.core.dal.entity.Category;
 import com.zblog.core.dal.entity.Result;
-import com.zblog.core.util.CollectionUtils;
-import com.zblog.core.util.IdGenerator;
+import com.zblog.core.utils.CollectionUtils;
+import com.zblog.core.utils.IdGenerator;
 import com.zblog.service.CategoryService;
 import com.zblog.web.backend.form.validator.CategoryFormValidator;
 

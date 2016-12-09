@@ -13,7 +13,7 @@ import redstone.xmlrpc.XmlRpcServer;
 import com.zblog.biz.MetaWeblogManager;
 import com.zblog.core.WebConstants;
 import com.zblog.core.dal.constants.OptionConstants;
-import com.zblog.core.util.ServletUtils;
+import com.zblog.core.utils.ServletUtils;
 import com.zblog.service.OptionsService;
 
 /**

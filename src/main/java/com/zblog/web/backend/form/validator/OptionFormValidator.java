@@ -3,7 +3,7 @@ package com.zblog.web.backend.form.validator;
 import java.util.HashMap;
 import java.util.Map;
 
-import com.zblog.core.util.StringUtils;
+import com.zblog.core.utils.StringUtils;
 import com.zblog.web.backend.form.GeneralOption;
 import com.zblog.web.backend.form.PostOption;
 

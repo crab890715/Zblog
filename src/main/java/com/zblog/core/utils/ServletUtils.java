@@ -1,4 +1,4 @@
-package com.zblog.core.util;
+package com.zblog.core.utils;
 
 import java.io.IOException;
 import java.io.Writer;

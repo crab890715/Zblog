@@ -29,7 +29,7 @@ import org.w3c.dom.Element;
 import org.w3c.dom.NodeList;
 import org.xml.sax.InputSource;
 
-import com.zblog.core.util.DateUtils;
+import com.zblog.core.utils.DateUtils;
 
 /**
  * WordPress导入工具

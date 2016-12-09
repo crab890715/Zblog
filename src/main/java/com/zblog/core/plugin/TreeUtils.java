@@ -3,7 +3,7 @@ package com.zblog.core.plugin;
 import java.util.Iterator;
 import java.util.List;
 
-import com.zblog.core.util.StringUtils;
+import com.zblog.core.utils.StringUtils;
 
 public class TreeUtils{
 

@@ -10,8 +10,8 @@ import javax.xml.stream.XMLStreamException;
 import javax.xml.stream.XMLStreamWriter;
 
 import com.zblog.core.feed.Channel.Article;
-import com.zblog.core.util.IndentXMLStreamWriter;
-import com.zblog.core.util.StringUtils;
+import com.zblog.core.utils.IndentXMLStreamWriter;
+import com.zblog.core.utils.StringUtils;
 
 public class RssFeedWriter{
 

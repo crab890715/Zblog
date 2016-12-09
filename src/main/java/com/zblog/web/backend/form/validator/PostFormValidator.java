@@ -5,7 +5,7 @@ import java.util.Map;
 
 import com.zblog.core.dal.constants.PostConstants;
 import com.zblog.core.dal.entity.Post;
-import com.zblog.core.util.StringUtils;
+import com.zblog.core.utils.StringUtils;
 
 public class PostFormValidator {
 

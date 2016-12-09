@@ -11,8 +11,8 @@ import com.zblog.core.dal.entity.Category;
 import com.zblog.core.dal.mapper.BaseMapper;
 import com.zblog.core.dal.mapper.CategoryMapper;
 import com.zblog.core.dal.mapper.PostMapper;
-import com.zblog.core.util.IdGenerator;
-import com.zblog.core.util.StringUtils;
+import com.zblog.core.utils.IdGenerator;
+import com.zblog.core.utils.StringUtils;
 
 @Service
 public class CategoryService extends BaseService{

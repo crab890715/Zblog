@@ -4,7 +4,7 @@ import java.util.HashMap;
 import java.util.Map;
 
 import com.zblog.core.dal.entity.Category;
-import com.zblog.core.util.StringUtils;
+import com.zblog.core.utils.StringUtils;
 
 public class CategoryFormValidator {
 

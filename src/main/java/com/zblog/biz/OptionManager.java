@@ -6,8 +6,8 @@ import org.springframework.transaction.annotation.Transactional;
 
 import com.zblog.core.dal.constants.OptionConstants;
 import com.zblog.core.dal.constants.PostConstants;
-import com.zblog.core.util.NumberUtils;
-import com.zblog.core.util.StringUtils;
+import com.zblog.core.utils.NumberUtils;
+import com.zblog.core.utils.StringUtils;
 import com.zblog.service.OptionsService;
 import com.zblog.web.backend.form.GeneralOption;
 import com.zblog.web.backend.form.MailOption;

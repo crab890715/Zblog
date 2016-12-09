@@ -15,7 +15,7 @@ import com.zblog.core.WebConstants;
 import com.zblog.core.dal.constants.OptionConstants;
 import com.zblog.core.dal.constants.PostConstants;
 import com.zblog.core.dal.entity.Post;
-import com.zblog.core.util.NumberUtils;
+import com.zblog.core.utils.NumberUtils;
 import com.zblog.service.LinkService;
 import com.zblog.service.OptionsService;
 import com.zblog.service.PostService;

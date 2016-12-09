@@ -20,8 +20,8 @@ import org.apache.ibatis.scripting.defaults.DefaultParameterHandler;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
-import com.zblog.core.util.BeanPropertyUtils;
-import com.zblog.core.util.JdbcUtils;
+import com.zblog.core.utils.BeanPropertyUtils;
+import com.zblog.core.utils.JdbcUtils;
 
 /**
  * Mybatis的分页查询插件，通过拦截StatementHandler的prepare方法来实现。

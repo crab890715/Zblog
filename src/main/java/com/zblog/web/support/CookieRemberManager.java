@@ -8,9 +8,9 @@ import com.zblog.core.dal.entity.User;
 import com.zblog.core.plugin.ApplicationContextUtil;
 import com.zblog.core.security.HashCalculator;
 import com.zblog.core.security.Hex;
-import com.zblog.core.util.Cookier;
-import com.zblog.core.util.IdGenerator;
-import com.zblog.core.util.StringUtils;
+import com.zblog.core.utils.Cookier;
+import com.zblog.core.utils.IdGenerator;
+import com.zblog.core.utils.StringUtils;
 import com.zblog.service.UserService;
 
 /**

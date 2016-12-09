@@ -4,8 +4,8 @@ import java.util.HashMap;
 import java.util.Map;
 
 import com.zblog.core.dal.entity.Link;
-import com.zblog.core.util.CommRegular;
-import com.zblog.core.util.StringUtils;
+import com.zblog.core.utils.CommRegular;
+import com.zblog.core.utils.StringUtils;
 
 public class LinkFormValidator {
 

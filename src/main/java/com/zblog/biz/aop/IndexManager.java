@@ -15,7 +15,7 @@ import com.zblog.core.lucene.LuceneUtils;
 import com.zblog.core.lucene.QueryBuilder;
 import com.zblog.core.lucene.SearchEnginer;
 import com.zblog.core.plugin.PageModel;
-import com.zblog.core.util.JsoupUtils;
+import com.zblog.core.utils.JsoupUtils;
 
 /**
  * 文章Lucene索引管理器

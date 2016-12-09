@@ -12,7 +12,7 @@ import com.zblog.biz.CommentManager;
 import com.zblog.biz.PostManager;
 import com.zblog.biz.VisitStatManager;
 import com.zblog.core.WebConstants;
-import com.zblog.core.util.Cookier;
+import com.zblog.core.utils.Cookier;
 import com.zblog.service.vo.PostVO;
 
 @Controller

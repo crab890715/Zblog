@@ -23,9 +23,9 @@ import com.zblog.core.dal.constants.PostConstants;
 import com.zblog.core.feed.ArticleAdapter;
 import com.zblog.core.feed.Channel;
 import com.zblog.core.feed.Channel.Article;
+import com.zblog.core.utils.ServletUtils;
+import com.zblog.core.utils.StringUtils;
 import com.zblog.core.feed.RssFeedWriter;
-import com.zblog.core.util.ServletUtils;
-import com.zblog.core.util.StringUtils;
 import com.zblog.service.OptionsService;
 import com.zblog.service.vo.PostVO;
 

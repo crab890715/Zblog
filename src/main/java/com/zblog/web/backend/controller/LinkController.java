@@ -15,8 +15,8 @@ import org.springframework.web.bind.annotation.ResponseBody;
 
 import com.zblog.core.dal.entity.Link;
 import com.zblog.core.dal.entity.Result;
-import com.zblog.core.util.IdGenerator;
-import com.zblog.core.util.StringUtils;
+import com.zblog.core.utils.IdGenerator;
+import com.zblog.core.utils.StringUtils;
 import com.zblog.service.LinkService;
 import com.zblog.web.backend.form.validator.LinkFormValidator;
 import com.zblog.web.support.WebContextFactory;

@@ -3,10 +3,10 @@ package com.zblog.core.tag;
 import java.net.URI;
 import java.util.Collection;
 
-import com.zblog.core.util.CollectionUtils;
-import com.zblog.core.util.Cookier;
-import com.zblog.core.util.FileUtils;
-import com.zblog.core.util.StringUtils;
+import com.zblog.core.utils.CollectionUtils;
+import com.zblog.core.utils.Cookier;
+import com.zblog.core.utils.FileUtils;
+import com.zblog.core.utils.StringUtils;
 import com.zblog.web.support.WebContext;
 import com.zblog.web.support.WebContextFactory;
 

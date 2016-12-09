@@ -10,7 +10,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
 import com.zblog.biz.OptionManager;
-import com.zblog.core.util.CollectionUtils;
+import com.zblog.core.utils.CollectionUtils;
 import com.zblog.service.CategoryService;
 import com.zblog.service.email.MailSenderService;
 import com.zblog.web.backend.form.GeneralOption;

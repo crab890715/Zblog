@@ -13,7 +13,7 @@ import javax.servlet.http.HttpServletRequest;
 import org.springframework.web.multipart.MultipartFile;
 import org.springframework.web.multipart.MultipartHttpServletRequest;
 
-import com.zblog.core.util.ServletUtils;
+import com.zblog.core.utils.ServletUtils;
 
 /**
  * Servlet参数提取工具
