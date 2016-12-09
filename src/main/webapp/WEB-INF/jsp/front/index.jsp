@@ -3,7 +3,7 @@
 <!DOCTYPE Html>
 <html>
 <head>
-<jsp:include page="common/head.jsp" flush="false" />
+<%@ include file="common/head.jsp"%>
 </head>
 <body>
   <%@include file="common/header.html" %>

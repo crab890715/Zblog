@@ -17,6 +17,7 @@ public class CssTag extends TagSupport{
 	private static final long serialVersionUID = 8997239144745198831L;
 	private String id;
 	private String href;
+	private String media;
 	private void addAttribute(StringBuffer sb,String name,String value){
 		if(StringUtils.isNotBlank(value)){
 			sb.append(MessageFormat.format(" {0}=\"{1}\" ",name,value));
@@ -37,6 +38,7 @@ public class CssTag extends TagSupport{
 		String baseurl = AppUtils.baseurl();
 		StringBuffer sb = new StringBuffer();
 		addAttribute(sb, "id", id);
+		addAttribute(sb, "media", media);
 		addAttribute(sb, "href", baseurl+"/"+version(href));
         try {
 			out.println( MessageFormat.format("<link type=\"text/css\" rel=\"stylesheet\"{0}/>",
@@ -66,6 +68,12 @@ public class CssTag extends TagSupport{
 	 */
 	public void setId(String id) {
 		this.id = id;
+	}
+	public String getMedia() {
+		return media;
+	}
+	public void setMedia(String media) {
+		this.media = media;
 	}
 
 }
