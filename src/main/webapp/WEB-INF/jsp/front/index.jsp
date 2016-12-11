@@ -122,7 +122,7 @@
       <%@include file="common/archive.html" %>
       <%@include file="common/link.html" %>
     </div>
-    <jsp:include page="common/footer.jsp" flush="false" />
+    <%@ include file="common/footer.jsp"%>
   </div>
 </body>
 </html>

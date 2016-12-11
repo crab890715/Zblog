@@ -3,7 +3,7 @@
 <!DOCTYPE Html>
 <html>
  <head>
-   <jsp:include page="common/head.jsp" flush="false" />
+   <%@ include file="common/head.jsp"%>
  </head>
  <body>
    <%@include file="common/header.html" %>
@@ -42,7 +42,7 @@
        <%@include file="common/archive.html" %>
        <%@include file="common/link.html" %>
      </div>
-     <jsp:include page="common/footer.jsp" flush="false" />
+     <%@ include file="common/footer.jsp"%>
    </div>
  </body>
 </html>

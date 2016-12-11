@@ -3,7 +3,7 @@
 <!DOCTYPE Html>
 <html>
 <head>
-<jsp:include page="common/head.jsp" flush="false" />
+<%@ include file="common/head.jsp"%>
 </head>
 <body>
   <%@include file="common/header.html" %>
@@ -21,11 +21,11 @@
                <ol class="commentlist"><li id="nocomment" class="comment"><div class="comment-content"><p>暂无评论</p></div></li></ol>
              </c:when>
              <c:otherwise>
-               <jsp:include page="common/comments_list.jsp" flush="false" />
+             <%@ include file="common/comments_list.jsp"%>
              </c:otherwise>
            </c:choose>
           </div>
-          <jsp:include page="common/comments_form.jsp" flush="false" />
+          <%@ include file="common/comments_form.jsp"%>
         </div>
       </div>
       <div id="previous_next_post">
@@ -61,7 +61,7 @@
       <%@include file="common/archive.html" %>
       <%@include file="common/link.html" %>
     </div>
-    <jsp:include page="common/footer.jsp" flush="false" />
+     <%@ include file="common/footer.jsp"%>
   </div>
 </body>
 </html>

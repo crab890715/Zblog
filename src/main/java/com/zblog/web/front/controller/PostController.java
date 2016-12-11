@@ -43,7 +43,7 @@ public class PostController{
       model.addAttribute("prev", postService.getPrevPost(id));
     }
 
-    return post != null ? "post" : "404";
+    return post != null ? "front/post" : "front/404";
   }
 
 }
