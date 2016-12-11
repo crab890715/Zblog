@@ -47,7 +47,7 @@
               </div>
               <div class="col-sm-6 col-md-6">
                 <div id="pager">
-                 <jsp:include page="../common/pagination.jsp" flush="false" />
+                <%@ include file="../common/pagination.jsp"%>
                 </div>
               </div>
             </div>
