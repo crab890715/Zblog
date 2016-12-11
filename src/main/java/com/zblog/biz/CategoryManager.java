@@ -5,6 +5,7 @@ import java.util.Collections;
 import java.util.List;
 import java.util.Map;
 
+import org.apache.commons.lang3.math.NumberUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 import org.springframework.transaction.annotation.Transactional;
@@ -55,7 +56,7 @@ public class CategoryManager {
 		Map<String, Object> root = preOrder.get(0);
 		for (int i = 1; i < preOrder.size(); i++) {
 			Map<String, Object> current = preOrder.get(i);
-			int level = (int) current.get("level");
+			int level = NumberUtils.toInt("" + current.get("level"));
 			current.put("level", level - 1);
 			Map<String, Object> parent = getLastParentByLevel(root, level - 1);
 			List<Map<String, Object>> l = new ArrayList<Map<String, Object>>();
