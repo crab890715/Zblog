@@ -35,6 +35,35 @@
 		</attribute>
 	</tag>
 	<tag>
+		<name>link</name>
+		<tag-class>com.zblog.core.tag.LinkTag</tag-class>
+		<attribute>
+			<name>href</name>
+			<required>true</required>
+		</attribute>
+		<attribute>
+			<name>title</name>
+			<required>false</required>
+			<rtexprvalue>true</rtexprvalue>
+		</attribute>
+		<attribute>
+			<name>media</name>
+			<required>false</required>
+		</attribute>
+		<attribute>
+			<name>type</name>
+			<required>false</required>
+		</attribute>
+		<attribute>
+			<name>rel</name>
+			<required>false</required>
+		</attribute>
+		<attribute>
+			<name>id</name>
+			<required>false</required>
+		</attribute>
+	</tag>
+	<tag>
 		<name>img</name>
 		<tag-class>com.zblog.core.tag.ImageTag</tag-class>
 		<attribute>
