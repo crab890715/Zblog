@@ -17,7 +17,7 @@ zblog.register =function(){
 }
 
 zblog.getDomainLink=function(path){
-  return window.location.protocol+"//"+window.location.host+"/backend/"+path;
+  return window.blog.baseurl+"/backend/"+path;
 }
 
 zblog.newCsrf=function(){

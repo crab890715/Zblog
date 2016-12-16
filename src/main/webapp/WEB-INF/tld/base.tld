@@ -113,4 +113,10 @@
 		<function-class>com.zblog.core.utils.AppUtils</function-class>
 		<function-signature>java.lang.String imageurl(java.lang.String)</function-signature>
 	</function>
+	<function>
+		<description>get base url</description>
+		<name>baseurl</name>
+		<function-class>com.zblog.core.utils.AppUtils</function-class>
+		<function-signature>java.lang.String baseurl()</function-signature>
+	</function>
 </taglib>

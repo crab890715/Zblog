@@ -1,5 +1,5 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
-<%@ include file="../common/tags.jsp"%>
+<%@ include file="../common/base.jsp"%>
 <!DOCTYPE Html>
 <html>
  <head>
@@ -44,7 +44,7 @@
       </div>
     </div>
   </div>
-  <script type="text/javascript" src="${g.domain}/resource/webuploader-0.1.5/webuploader.min.js"></script>
-  <script type="text/javascript" src="${g.domain}/resource/js/backend/upload.js"></script>
+  <b:script src="resource/webuploader-0.1.5/webuploader.min.js"></b:script>
+  <b:script src="resource/js/backend/upload.js"></b:script>
  </body>
 </html>

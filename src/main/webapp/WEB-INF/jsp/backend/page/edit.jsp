@@ -1,5 +1,5 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
-<%@ include file="../common/tags.jsp"%>
+<%@ include file="../common/base.jsp"%>
 <!DOCTYPE Html>
 <html>
  <head>
@@ -95,6 +95,6 @@
       </div>
     </div>
   </div>
-  <script type="text/javascript" src="${g.domain}/resource/js/backend/admin.page.js"></script>
+  <b:script src="resource/js/backend/admin.page.js"></b:script>
  </body>
 </html>

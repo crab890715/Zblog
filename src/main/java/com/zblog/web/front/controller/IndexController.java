@@ -1,6 +1,7 @@
 package com.zblog.web.front.controller;
 
 import java.io.IOException;
+import java.io.UnsupportedEncodingException;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -30,59 +31,60 @@ import com.zblog.service.OptionsService;
 import com.zblog.service.vo.PostVO;
 
 @Controller
-public class IndexController{
-  @Autowired
-  private PostManager postManager;
-  @Autowired
-  private StaticTemplate staticTemplate;
-  @Autowired
-  private OptionsService optionsService;
+public class IndexController {
+	@Autowired
+	private PostManager postManager;
+	@Autowired
+	private StaticTemplate staticTemplate;
+	@Autowired
+	private OptionsService optionsService;
 
-  @RequestMapping(value = "/", method = RequestMethod.GET)
-  public String index(@RequestParam(value = "page", defaultValue = "1") int page, String word, Model model){
-    if(!StringUtils.isBlank(word)){
-      word = word.trim();
-      model.addAttribute("page", postManager.search(word, page));
-      model.addAttribute("search", word);
-      model.addAttribute(WebConstants.PRE_TITLE_KEY, word);
-    }else{
-      model.addAttribute("page", postManager.listPost(page, 10));
-    }
+	@RequestMapping(value = "/", method = RequestMethod.GET)
+	public String index(@RequestParam(value = "page", defaultValue = "1") int page, String word, Model model) {
 
-    return "front/index";
-  }
+		if (!StringUtils.isBlank(word)) {
+			word = word.trim();
+			model.addAttribute("page", postManager.search(word, page));
+			model.addAttribute("search", word);
+			model.addAttribute(WebConstants.PRE_TITLE_KEY, word);
+		} else {
+			model.addAttribute("page", postManager.listPost(page, 10));
+		}
 
-  @RequestMapping(value = "/feed")
-  public void rss(HttpServletRequest request, HttpServletResponse response) throws IOException{
-    Channel channel = new Channel();
-    channel.setDomain(ServletUtils.getDomain(request));
-    channel.setLogoUrl(channel.getDomain() + "/resource/img/logo.png");
-    channel.setTitle(optionsService.getOptionValue(OptionConstants.TITLE));
-    channel.setDescription(optionsService.getOptionValue(OptionConstants.DESCRIPTION));
+		return "front/index";
+	}
 
-    List<Article> items = new ArrayList<>();
-    for(PostVO pvo : postManager.listRecent(10, PostConstants.POST_CREATOR_ALL)){
-      items.add(new ArticleAdapter(pvo));
-    }
-    channel.setItems(items);
-    response.setContentType("text/xml");
-    try{
-      RssFeedWriter.write(channel, response.getOutputStream());
-    }catch(XMLStreamException | IOException e){
-      throw new IOException(e);
-    }
-  }
+	@RequestMapping(value = "/feed")
+	public void rss(HttpServletRequest request, HttpServletResponse response) throws IOException {
+		Channel channel = new Channel();
+		channel.setDomain(ServletUtils.getDomain(request));
+		channel.setLogoUrl(channel.getDomain() + "/resource/img/logo.png");
+		channel.setTitle(optionsService.getOptionValue(OptionConstants.TITLE));
+		channel.setDescription(optionsService.getOptionValue(OptionConstants.DESCRIPTION));
 
-  @RequestMapping(value = "/sitemap", method = RequestMethod.GET)
-  public String sitemap(Model model){
-    List<PostVO> posts = postManager.listBySitemap();
-    model.addAttribute("posts", posts);
+		List<Article> items = new ArrayList<>();
+		for (PostVO pvo : postManager.listRecent(10, PostConstants.POST_CREATOR_ALL)) {
+			items.add(new ArticleAdapter(pvo));
+		}
+		channel.setItems(items);
+		response.setContentType("text/xml");
+		try {
+			RssFeedWriter.write(channel, response.getOutputStream());
+		} catch (XMLStreamException | IOException e) {
+			throw new IOException(e);
+		}
+	}
 
-    return "front/sitemap";
-  }
+	@RequestMapping(value = "/sitemap", method = RequestMethod.GET)
+	public String sitemap(Model model) {
+		List<PostVO> posts = postManager.listBySitemap();
+		model.addAttribute("posts", posts);
 
-  @RequestMapping("/restatic.json")
-  public void restatic(HttpServletRequest request){
-  }
+		return "front/sitemap";
+	}
+
+	@RequestMapping("/restatic.json")
+	public void restatic(HttpServletRequest request) {
+	}
 
 }

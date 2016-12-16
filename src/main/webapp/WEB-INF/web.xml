@@ -55,6 +55,7 @@
       <param-value>UTF-8</param-value>
     </init-param>
   </filter>
+  
    <!-- 注意xssFilter需配置在csrfFilter之前 -->
   <!-- <filter>
     <filter-name>StatelessCsrfFilter</filter-name>

@@ -1,10 +1,10 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
-<%@ include file="../common/tags.jsp"%>
+<%@ include file="../common/base.jsp"%>
 <!DOCTYPE Html>
 <html>
  <head>
   <%@ include file="../common/bootstrap.jsp"%>
-  <link rel="stylesheet" href="${g.domain}/resource/zdialog/alert.css" type='text/css'>
+  <b:link href="resource/zdialog/alert.css"></b:link>
  </head>
  <body style="margin-top: 50px;">
   <%@ include file="../common/navbar.jsp"%>
@@ -54,9 +54,8 @@
         <button type="button" class="btn btn-primary" onclick="zblog.category.insert();">确定</button>
      </div>
    </div>
-  
-  <script type="text/javascript" src="${g.domain}/resource/bootstrap-tree/bootstrap-treeview.min.js"></script>
-  <script type="text/javascript" src="${g.domain}/resource/js/backend/admin.category.js"></script>
-  <script type="text/javascript" src="${g.domain}/resource/zdialog/alert.js"></script>
+  <b:script src="resource/bootstrap-tree/bootstrap-treeview.min.js"></b:script>
+  <b:script src="resource/js/backend/admin.category.js"></b:script>
+  <b:script src="resource/zdialog/alert.js"></b:script>
  </body>
 </html>
